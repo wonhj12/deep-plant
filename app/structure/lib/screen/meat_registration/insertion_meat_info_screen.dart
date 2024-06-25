@@ -5,13 +5,13 @@
 //
 
 import 'package:provider/provider.dart';
-import 'package:deepplant/components/custom_app_bar.dart';
-import 'package:deepplant/components/custom_drop_down.dart';
-import 'package:deepplant/components/main_button.dart';
+import 'package:structure/components/custom_app_bar.dart';
+import 'package:structure/components/custom_drop_down.dart';
+import 'package:structure/components/main_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:deepplant/config/pallete.dart';
-import 'package:deepplant/viewModel/meat_registration/insertion_meat_info_view_model.dart';
+import 'package:structure/config/pallete.dart';
+import 'package:structure/viewModel/meat_registration/insertion_meat_info_view_model.dart';
 
 class InsertionMeatInfoScreen extends StatefulWidget {
   const InsertionMeatInfoScreen({super.key});

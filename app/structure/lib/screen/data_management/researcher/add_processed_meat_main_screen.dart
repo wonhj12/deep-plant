@@ -6,11 +6,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
-import 'package:deepplant/components/custom_app_bar.dart';
-import 'package:deepplant/components/step_card.dart';
-import 'package:deepplant/main.dart';
-import 'package:deepplant/model/meat_model.dart';
-import 'package:deepplant/viewModel/data_management/researcher/add_processed_meat_view_model.dart';
+import 'package:structure/components/custom_app_bar.dart';
+import 'package:structure/components/step_card.dart';
+import 'package:structure/main.dart';
+import 'package:structure/model/meat_model.dart';
+import 'package:structure/viewModel/data_management/researcher/add_processed_meat_view_model.dart';
 
 class AddProcessedMeatMainScreen extends StatefulWidget {
   final MeatModel meatModel;

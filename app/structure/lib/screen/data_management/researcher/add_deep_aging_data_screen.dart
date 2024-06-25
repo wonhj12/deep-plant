@@ -8,13 +8,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
-import 'package:deepplant/components/custom_app_bar.dart';
-import 'package:deepplant/components/custom_table_calendar.dart';
+import 'package:structure/components/custom_app_bar.dart';
+import 'package:structure/components/custom_table_calendar.dart';
 
-import 'package:deepplant/components/main_button.dart';
-import 'package:deepplant/components/main_text_field.dart';
-import 'package:deepplant/config/pallete.dart';
-import 'package:deepplant/viewModel/data_management/researcher/add_deep_aging_data_view_model.dart';
+import 'package:structure/components/main_button.dart';
+import 'package:structure/components/main_text_field.dart';
+import 'package:structure/config/pallete.dart';
+import 'package:structure/viewModel/data_management/researcher/add_deep_aging_data_view_model.dart';
 
 class AddDeepAgingDataScreen extends StatefulWidget {
   const AddDeepAgingDataScreen({super.key});

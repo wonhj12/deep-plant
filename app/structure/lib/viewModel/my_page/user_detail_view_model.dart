@@ -2,10 +2,10 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:kpostal/kpostal.dart';
-import 'package:deepplant/components/custom_app_bar.dart';
-import 'package:deepplant/components/custom_pop_up.dart';
-import 'package:deepplant/dataSource/remote_data_source.dart';
-import 'package:deepplant/model/user_model.dart';
+import 'package:structure/components/custom_app_bar.dart';
+import 'package:structure/components/custom_pop_up.dart';
+import 'package:structure/dataSource/remote_data_source.dart';
+import 'package:structure/model/user_model.dart';
 
 class UserDetailViewModel with ChangeNotifier {
   UserModel userModel;

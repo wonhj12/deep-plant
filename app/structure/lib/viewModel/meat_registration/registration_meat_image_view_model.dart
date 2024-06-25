@@ -13,9 +13,9 @@ import 'package:http/http.dart' as http;
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:deepplant/config/userfuls.dart';
-import 'package:deepplant/dataSource/remote_data_source.dart';
-import 'package:deepplant/model/meat_model.dart';
+import 'package:structure/config/userfuls.dart';
+import 'package:structure/dataSource/remote_data_source.dart';
+import 'package:structure/model/meat_model.dart';
 
 class RegistrationMeatImageViewModel with ChangeNotifier {
   final MeatModel meatModel;

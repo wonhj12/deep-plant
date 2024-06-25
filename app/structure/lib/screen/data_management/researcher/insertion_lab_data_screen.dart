@@ -7,10 +7,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
-import 'package:deepplant/components/custom_app_bar.dart';
-import 'package:deepplant/components/labdata_field.dart';
-import 'package:deepplant/components/main_button.dart';
-import 'package:deepplant/viewModel/data_management/researcher/insertion_lab_data_view_model.dart';
+import 'package:structure/components/custom_app_bar.dart';
+import 'package:structure/components/labdata_field.dart';
+import 'package:structure/components/main_button.dart';
+import 'package:structure/viewModel/data_management/researcher/insertion_lab_data_view_model.dart';
 
 class InsertionLabDataScreen extends StatefulWidget {
   const InsertionLabDataScreen({super.key});

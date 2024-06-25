@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:deepplant/config/pallete.dart';
+import 'package:structure/config/pallete.dart';
 
 class RoundButton extends StatelessWidget {
   final Widget text;

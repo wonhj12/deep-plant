@@ -8,10 +8,10 @@ import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
-import 'package:deepplant/components/custom_app_bar.dart';
-import 'package:deepplant/components/deep_aging_card.dart';
-import 'package:deepplant/config/pallete.dart';
-import 'package:deepplant/viewModel/data_management/researcher/data_add_home_view_model.dart';
+import 'package:structure/components/custom_app_bar.dart';
+import 'package:structure/components/deep_aging_card.dart';
+import 'package:structure/config/pallete.dart';
+import 'package:structure/viewModel/data_management/researcher/data_add_home_view_model.dart';
 
 class DataAddHome extends StatefulWidget {
   const DataAddHome({super.key});

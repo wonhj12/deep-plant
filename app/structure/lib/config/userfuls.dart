@@ -5,7 +5,7 @@
 //
 
 import 'package:intl/intl.dart';
-import 'package:deepplant/model/meat_model.dart';
+import 'package:structure/model/meat_model.dart';
 
 class Usefuls {
   // 현재 날짜

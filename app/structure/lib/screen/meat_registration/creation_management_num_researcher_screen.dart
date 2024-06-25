@@ -3,10 +3,10 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
-import 'package:deepplant/components/main_button.dart';
-import 'package:deepplant/config/pallete.dart';
-import 'package:deepplant/config/userfuls.dart';
-import 'package:deepplant/viewModel/meat_registration/creation_management_num_researcher_view_model.dart';
+import 'package:structure/components/main_button.dart';
+import 'package:structure/config/pallete.dart';
+import 'package:structure/config/userfuls.dart';
+import 'package:structure/viewModel/meat_registration/creation_management_num_researcher_view_model.dart';
 
 class CreationManagementNumResearcherNumScreen extends StatelessWidget {
   const CreationManagementNumResearcherNumScreen({

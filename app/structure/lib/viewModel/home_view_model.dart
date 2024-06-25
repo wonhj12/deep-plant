@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
-import 'package:deepplant/components/custom_pop_up.dart';
-import 'package:deepplant/model/user_model.dart';
+import 'package:structure/components/custom_pop_up.dart';
+import 'package:structure/model/user_model.dart';
 
 class HomeViewModel with ChangeNotifier {
   UserModel userModel;

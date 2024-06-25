@@ -14,7 +14,7 @@
 // 7. 삭제 버튼을 누를 때 수행할 기능 정의.
 //
 //
-import 'package:deepplant/config/pallete.dart';
+import 'package:structure/config/pallete.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

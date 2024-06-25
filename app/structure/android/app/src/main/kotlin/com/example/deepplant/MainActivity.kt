@@ -1,4 +1,4 @@
-package com.example.deepplant
+package com.example.structure
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -6,8 +6,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:deepplant/config/userfuls.dart';
-import 'package:deepplant/model/meat_model.dart';
+import 'package:structure/config/userfuls.dart';
+import 'package:structure/model/meat_model.dart';
 
 class EditMeatDataViewModel with ChangeNotifier {
   MeatModel meatModel;

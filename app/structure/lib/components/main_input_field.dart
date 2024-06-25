@@ -20,7 +20,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:deepplant/config/pallete.dart';
+import 'package:structure/config/pallete.dart';
 
 class MainInputField extends StatefulWidget {
   const MainInputField({

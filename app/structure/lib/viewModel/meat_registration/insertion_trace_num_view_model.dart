@@ -9,8 +9,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
-import 'package:deepplant/dataSource/remote_data_source.dart';
-import 'package:deepplant/model/meat_model.dart';
+import 'package:structure/dataSource/remote_data_source.dart';
+import 'package:structure/model/meat_model.dart';
 
 class InsertionTraceNumViewModel with ChangeNotifier {
   final MeatModel meatModel;

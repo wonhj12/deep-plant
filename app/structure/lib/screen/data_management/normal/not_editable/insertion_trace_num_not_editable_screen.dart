@@ -4,13 +4,13 @@
 //
 //
 import 'package:provider/provider.dart';
-import 'package:deepplant/components/inner_box.dart';
-import 'package:deepplant/components/custom_app_bar.dart';
-import 'package:deepplant/components/main_button.dart';
+import 'package:structure/components/inner_box.dart';
+import 'package:structure/components/custom_app_bar.dart';
+import 'package:structure/components/main_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:deepplant/config/pallete.dart';
-import 'package:deepplant/viewModel/data_management/normal/not_editable/insertion_trace_num_not_editable_view_model.dart';
+import 'package:structure/config/pallete.dart';
+import 'package:structure/viewModel/data_management/normal/not_editable/insertion_trace_num_not_editable_view_model.dart';
 
 class InsertionTraceNumNotEditableScreen extends StatefulWidget {
   const InsertionTraceNumNotEditableScreen({super.key});

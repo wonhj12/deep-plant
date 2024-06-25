@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
-import 'package:deepplant/components/custom_icon_button.dart';
-import 'package:deepplant/config/pallete.dart';
-import 'package:deepplant/viewModel/home_view_model.dart';
+import 'package:structure/components/custom_icon_button.dart';
+import 'package:structure/config/pallete.dart';
+import 'package:structure/viewModel/home_view_model.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({

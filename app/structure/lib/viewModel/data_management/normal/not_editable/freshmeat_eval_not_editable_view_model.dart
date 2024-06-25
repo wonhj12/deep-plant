@@ -5,7 +5,7 @@
 //
 
 import 'package:flutter/material.dart';
-import 'package:deepplant/model/meat_model.dart';
+import 'package:structure/model/meat_model.dart';
 
 class FreshMeatEvalNotEditableViewModel with ChangeNotifier {
   MeatModel meatModel;

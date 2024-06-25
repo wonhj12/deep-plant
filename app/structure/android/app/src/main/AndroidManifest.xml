@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
-        android:label="deepplant"
+        android:label="딥에이징"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

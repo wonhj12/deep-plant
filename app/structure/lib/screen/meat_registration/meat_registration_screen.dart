@@ -7,11 +7,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
-import 'package:deepplant/components/custom_app_bar.dart';
-import 'package:deepplant/components/step_card.dart';
-import 'package:deepplant/config/pallete.dart';
-import 'package:deepplant/model/meat_model.dart';
-import 'package:deepplant/viewModel/meat_registration/meat_registration_view_model.dart';
+import 'package:structure/components/custom_app_bar.dart';
+import 'package:structure/components/step_card.dart';
+import 'package:structure/config/pallete.dart';
+import 'package:structure/model/meat_model.dart';
+import 'package:structure/viewModel/meat_registration/meat_registration_view_model.dart';
 
 class MeatRegistrationScreen extends StatefulWidget {
   final MeatModel meatModel;

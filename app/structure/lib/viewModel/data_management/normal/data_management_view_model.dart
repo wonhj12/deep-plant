@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
-import 'package:deepplant/components/get_qr.dart';
-import 'package:deepplant/dataSource/remote_data_source.dart';
-import 'package:deepplant/main.dart';
-import 'package:deepplant/model/user_model.dart';
+import 'package:structure/components/get_qr.dart';
+import 'package:structure/dataSource/remote_data_source.dart';
+import 'package:structure/main.dart';
+import 'package:structure/model/user_model.dart';
 
 class DataManagementHomeViewModel with ChangeNotifier {
   UserModel userModel;

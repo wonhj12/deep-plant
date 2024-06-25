@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
-import 'package:deepplant/components/custom_app_bar.dart';
-import 'package:deepplant/components/main_button.dart';
-import 'package:deepplant/components/main_input_field.dart';
-import 'package:deepplant/config/pallete.dart';
-import 'package:deepplant/viewModel/sign_up/insertion_user_detail_view_model.dart';
+import 'package:structure/components/custom_app_bar.dart';
+import 'package:structure/components/main_button.dart';
+import 'package:structure/components/main_input_field.dart';
+import 'package:structure/config/pallete.dart';
+import 'package:structure/viewModel/sign_up/insertion_user_detail_view_model.dart';
 
 class InsertionUserDetailScreen extends StatefulWidget {
   const InsertionUserDetailScreen({

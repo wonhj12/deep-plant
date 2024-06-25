@@ -7,7 +7,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:deepplant/main.dart';
+import 'package:structure/main.dart';
 
 class MeatModel with ChangeNotifier {
   // 현재 유저의 id 저장

@@ -8,8 +8,8 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:deepplant/model/meat_model.dart';
-import 'package:deepplant/model/user_model.dart';
+import 'package:structure/model/meat_model.dart';
+import 'package:structure/model/user_model.dart';
 
 class InsertionMeatImageNotEditableViewModel with ChangeNotifier {
   final MeatModel meatModel;

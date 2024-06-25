@@ -3,8 +3,8 @@ import 'dart:convert';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:deepplant/dataSource/local_data_source.dart';
-import 'package:deepplant/model/user_model.dart';
+import 'package:structure/dataSource/local_data_source.dart';
+import 'package:structure/model/user_model.dart';
 import 'package:intl/intl.dart';
 
 class UserInfoViewModel with ChangeNotifier {

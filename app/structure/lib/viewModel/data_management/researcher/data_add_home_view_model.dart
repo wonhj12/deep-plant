@@ -7,10 +7,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
-import 'package:deepplant/dataSource/remote_data_source.dart';
-import 'package:deepplant/model/meat_model.dart';
-import 'package:deepplant/screen/data_management/researcher/add_deep_aging_data_screen.dart';
-import 'package:deepplant/viewModel/data_management/researcher/add_deep_aging_data_view_model.dart';
+import 'package:structure/dataSource/remote_data_source.dart';
+import 'package:structure/model/meat_model.dart';
+import 'package:structure/screen/data_management/researcher/add_deep_aging_data_screen.dart';
+import 'package:structure/viewModel/data_management/researcher/add_deep_aging_data_view_model.dart';
 
 class DataAddHomeViewModel with ChangeNotifier {
   MeatModel meatModel;

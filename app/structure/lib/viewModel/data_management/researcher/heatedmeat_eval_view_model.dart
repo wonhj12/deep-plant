@@ -6,9 +6,9 @@
 
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
-import 'package:deepplant/config/userfuls.dart';
-import 'package:deepplant/dataSource/remote_data_source.dart';
-import 'package:deepplant/model/meat_model.dart';
+import 'package:structure/config/userfuls.dart';
+import 'package:structure/dataSource/remote_data_source.dart';
+import 'package:structure/model/meat_model.dart';
 
 class HeatedMeatEvalViewModel with ChangeNotifier {
   MeatModel meatModel;

@@ -1,4 +1,4 @@
-import 'package:deepplant/config/pallete.dart';
+import 'package:structure/config/pallete.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

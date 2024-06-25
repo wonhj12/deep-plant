@@ -2,10 +2,10 @@ import 'dart:convert';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:deepplant/components/custom_pop_up.dart';
-import 'package:deepplant/config/pallete.dart';
-import 'package:deepplant/dataSource/remote_data_source.dart';
-import 'package:deepplant/model/user_model.dart';
+import 'package:structure/components/custom_pop_up.dart';
+import 'package:structure/config/pallete.dart';
+import 'package:structure/dataSource/remote_data_source.dart';
+import 'package:structure/model/user_model.dart';
 
 class ChangePasswordViewModel with ChangeNotifier {
   UserModel userModel;
