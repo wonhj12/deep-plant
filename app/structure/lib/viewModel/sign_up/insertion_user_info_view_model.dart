@@ -119,7 +119,7 @@ class InsertionUserInfoViewModel with ChangeNotifier {
       isUnique = false;
       notifyListeners();
       // popup 창 띄우기
-      showDuplicateEmailPopup(context);
+      if (context.mounted) showDuplicateEmailPopup(context);
     }
   }
 

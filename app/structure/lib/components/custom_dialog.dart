@@ -146,17 +146,17 @@ class DialogButton extends StatelessWidget {
         onPressed: buttonFunc,
         style: ButtonStyle(
           backgroundColor: isLeft
-              ? MaterialStateProperty.all<Color>(Palette.popupLeftBtnBg)
-              : MaterialStateProperty.all<Color>(
+              ? WidgetStateProperty.all<Color>(Palette.popupLeftBtnBg)
+              : WidgetStateProperty.all<Color>(
                   Palette.popupRightBtnBg,
                 ),
-          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+          shape: WidgetStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(15.r),
               side: BorderSide(color: const Color(0xFFD9D9D9), width: 2.w),
             ),
           ),
-          minimumSize: MaterialStateProperty.all<Size>(Size(230.w, 104.h)),
+          minimumSize: WidgetStateProperty.all<Size>(Size(230.w, 104.h)),
         ),
         child: Text(
           buttonText,

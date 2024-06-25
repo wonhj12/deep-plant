@@ -83,8 +83,7 @@ class InsertionUserDetailViewModel with ChangeNotifier {
       } else {
         throw Error();
       }
-
-      context.go('/sign-in/complete-sign-up');
+      if (context.mounted) context.go('/sign-in/complete-sign-up');
     } on FirebaseAuthException catch (e) {
       switch (e.code) {
         case 'email-already-in-use':

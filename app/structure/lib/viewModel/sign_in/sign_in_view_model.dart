@@ -104,13 +104,15 @@ class SignInViewModel with ChangeNotifier {
       notifyListeners();
 
       // 에러 스낵바
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          duration: const Duration(seconds: 1),
-          content: Text(errorMessage),
-          backgroundColor: Palette.alertBg,
-        ),
-      );
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            duration: const Duration(seconds: 1),
+            content: Text(errorMessage),
+            backgroundColor: Palette.alertBg,
+          ),
+        );
+      }
 
       return;
     }

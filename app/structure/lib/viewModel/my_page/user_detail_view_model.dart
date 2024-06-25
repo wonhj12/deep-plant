@@ -82,7 +82,7 @@ class UserDetailViewModel with ChangeNotifier {
       final response =
           await RemoteDataSource.updateUser(_convertUserUpdateToJson());
       if (response == null) throw Error();
-      showSuccessChangeUserInfo(context);
+      if (context.mounted) showSuccessChangeUserInfo(context);
     } catch (e) {
       print('$e');
       // 에러 페이지

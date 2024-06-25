@@ -99,7 +99,9 @@ class DataAddHomeViewModel with ChangeNotifier {
     meatModel.fromJson(response);
     meatModel.fromJsonAdditional('RAW');
     meatModel.seqno = 0;
-    context.go('/home/data-manage-researcher/add/raw-meat');
+    if (context.mounted) {
+      context.go('/home/data-manage-researcher/add/raw-meat');
+    }
   }
 
   late BuildContext _context;
