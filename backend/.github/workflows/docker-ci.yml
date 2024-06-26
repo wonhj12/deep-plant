@@ -1,0 +1,98 @@
+name: Docker CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v2
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Login to DockerHub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+
+      - name: Build the Docker images
+        run: docker-compose build
+
+      - name: Push the Docker images
+        run: docker-compose push
+
+  deploy:
+    needs: build-and-push # This ensures deployment starts after the build-and-push job is completed
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v2
+
+      - name: Deploy to EC2
+        env:
+          HOST: ${{ secrets.EC2_HOST }}
+          USERNAME: ${{ secrets.EC2_USERNAME }}
+          KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          
+        run: |
+          # Install SSH client
+          sudo apt-get update
+          sudo apt-get install -y openssh-client
+
+          # Start SSH agent
+          eval $(ssh-agent -s)
+
+          # Create the .ssh directory and config file
+          mkdir -p ~/.ssh
+          echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+
+          # Set permissions for the config file
+          chmod 644 ~/.ssh/config
+
+          # Add SSH key stored in GitHub secrets to the agent store
+          echo "$KEY" > temp_key
+          chmod 600 temp_key
+          ssh-add temp_key
+          rm temp_key
+
+          # SSH to the EC2 instance and execute commands
+          ssh -o 'StrictHostKeyChecking=no' $USERNAME@$HOST << 'ENDSSH'
+
+          # Stop and remove all running containers
+          sudo docker stop $(sudo docker ps -aq)
+          sudo docker rm $(sudo docker ps -aq)
+
+          # Remove all Docker images
+          sudo docker rmi $(sudo docker images -q)
+
+          # 여기에 서버에서 실행할 명령들 추가
+          rm -rf DP_Backend  # 기존 디렉토리 삭제
+          git clone https://github.com/Deep-Plant/DP_Backend.git
+          cd DP_Backend
+          echo "DB_URI=${{ secrets.DB_URI }}" > ./flask/.env
+          echo "AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }}" >> ./flask/.env
+          echo "AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}" >> ./flask/.env
+          echo "S3_BUCKET_NAME=${{secrets.S3_BUCKET_NAME}}">>./flask/.env
+          echo "S3_REGION_NAME=${{secrets.S3_REGION_NAME}}">>./flask/.env
+          echo "FIREBASE_BUCKET_ADDRESS=${{secrets.FIREBASE_BUCKET_ADDRESS}}">>./flask/.env
+          echo "ML_SERVER_BASER_URL=${{secrets.ML_SERVER_BASER_URL}}">>./flask/.env
+          echo "SERVICE_ACCOUNT_KEY=${{secrets.SERVICE_ACCOUNT_KEY}}">>./flask/serviceAccountKey.json
+
+          # EC2 인스턴스에서 필요한 명령 실행
+          sudo usermod -aG docker $USER
+          sudo apt-get update
+          sudo apt-get install -y docker.io docker-compose
+          sudo docker-compose build
+          sudo docker-compose up -d
+          ENDSSH
+
+
+
+          
