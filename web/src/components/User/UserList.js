@@ -1,4 +1,3 @@
-import Button from "react-bootstrap/Button";
 import * as React from "react";
 import Modal from "react-bootstrap/Modal";
 import UserRegister from "./UserRegister";
@@ -11,14 +10,14 @@ import CustomSnackbar from "../Base/CustomSnackbar";
 import DeleteIcon from "@mui/icons-material/Delete";
 import InputBase from "@mui/material/InputBase";
 import Toolbar from "@mui/material/Toolbar";
-import {  DataGrid } from "@mui/x-data-grid";
+import { DataGrid } from "@mui/x-data-grid";
 import IconButton from "@mui/material/IconButton";
 import CircularProgress from "@mui/material/CircularProgress";
 import SearchIcon from "@mui/icons-material/Search";
-import {
-  getAuth,
-} from "firebase/auth";
+import { IoMdPersonAdd } from "react-icons/io";
+import { getAuth } from "firebase/auth";
 import { Box } from "@mui/material";
+import { Button, Tooltip, OverlayTrigger } from 'react-bootstrap';
 
 function UserList() {
   const [registerShow, setRegisterShow] = useState(false);
@@ -37,8 +36,8 @@ function UserList() {
 
   const handleUserDelete = async (userId) => {
     try {
-      const auth = getAuth(); 
-      const user = auth.currentUser; 
+      const auth = getAuth();
+      const user = auth.currentUser;
       console.log(user.email);
       console.log(userId);
       if (!user) {
@@ -47,7 +46,10 @@ function UserList() {
       }
 
       if (user.email === userId) {
-        showSnackbar("자신의 계정은 삭제할 수 없습니다. 회원탈퇴는 프로필 페이지에서 가능합니다.", "error");
+        showSnackbar(
+          "자신의 계정은 삭제할 수 없습니다. 회원탈퇴는 프로필 페이지에서 가능합니다.",
+          "error"
+        );
         return;
       }
 
@@ -55,8 +57,6 @@ function UserList() {
       const response = await fetch(
         `http://3.39.51.41/user/delete?id=${userId}`
       );
-
-      
 
       if (response.ok) {
         // 삭제된 유저를 제외한 새로운 사용자 목록 업데이트
@@ -87,7 +87,12 @@ function UserList() {
   const closeSnackbar = () => {
     setSnackbarOpen(false);
   };
-
+  
+  const renderTooltip = (props) =>  (
+      <Tooltip id="button-tooltip" {...props}>
+        신규 회원 등록
+      </Tooltip>
+  );
   ////////////
 
   const columns = [
@@ -249,27 +254,25 @@ function UserList() {
     );
   };
 
-  
   return (
     <div>
       <Toolbar />
       <div style={{ display: "flex", alignItems: "center" }}>
-      <Typography
-  component="h2"
-  variant="h4"
-  gutterBottom
-  style={{
-    color: '#151D48',
-    fontFamily: 'Poppins',
-    fontSize: `${(36 / 1920) * 100}vw`,
-    fontStyle: 'normal',
-    fontWeight: 600,
-    lineHeight: `${(36 / 1920) * 100 * 1.4}vw`,
-  }}
->
-  User Management
-</Typography>
-        
+        <Typography
+          component="h2"
+          variant="h4"
+          gutterBottom
+          style={{
+            color: "#151D48",
+            fontFamily: "Poppins",
+            fontSize: `${(36 / 1920) * 100}vw`,
+            fontStyle: "normal",
+            fontWeight: 600,
+            lineHeight: `${(36 / 1920) * 100 * 1.4}vw`,
+          }}
+        >
+          User Management
+        </Typography>
       </div>
       <Modal
         show={registerShow}
@@ -278,96 +281,111 @@ function UserList() {
         keyboard={false}
         centered
       >
-        <Modal.Body >
-        <Modal.Title style={{
-          color: "#151D48",
-          fontFamily: "Poppins",
-          fontSize: `${(36 / 1920) * 100}vw`,
-          fontWeight: 600,
-          lineHeight: `${(36 / 1920) * 100 * 1.4}vw`,
-        }}>신규 회원 등록
-        
-        </Modal.Title>
+        <Modal.Body>
+          <Modal.Title
+            style={{
+              color: "#151D48",
+              fontFamily: "Poppins",
+              fontSize: `${(36 / 1920) * 100}vw`,
+              fontWeight: 600,
+              lineHeight: `${(36 / 1920) * 100 * 1.4}vw`,
+            }}
+          >
+            신규 회원 등록
+          </Modal.Title>
           <UserRegister handleClose={handleRegisterClose} />
         </Modal.Body>
       </Modal>
       <div style={{ display: "flex", alignItems: "center" }}>
-      <Box
-        component="form"
-        sx={{
-          marginBottom: `${(16 / 1080) * 100}vh`,
-          paddingX: `${(16 / 1920) * 100}vw`,
-          paddingY: `${(12 / 1080) * 100}vh`,
-          width: `${(513 / 1920) * 100}vw`,
-          height : `${(60 / 1080) * 100}vh`,
-          backgroundColor: '#FFF'
-        }}
-      >
-          <SearchIcon />
-        <InputBase
-          placeholder="사용자 검색"
-          onChange={(event) => handleSearch(event)}
+        <Box
+          component="form"
           sx={{
-            color: '#737791',
-            fontFamily: 'Poppins',
-            fontSize: `${(20 / 1920) * 100}vw`,
-            fontStyle: 'normal',
-            fontWeight: 500,
-            lineHeight: `${(20 / 1080) * 100}vh`,
+            marginBottom: `${(16 / 1080) * 100}vh`,
+            paddingX: `${(16 / 1920) * 100}vw`,
+            paddingY: `${(12 / 1080) * 100}vh`,
+            width: `${(513 / 1920) * 100}vw`,
+            height: `${(60 / 1080) * 100}vh`,
+            backgroundColor: "#FFF",
           }}
-        />
-      </Box>
-
-      <div style={{ marginLeft: "auto" }}>
-          <Button
-            className="mb-3"
-            onClick={handleRegisterShow}
-            style={{
-              display: "inline-flex",
-              paddingX: `${(12 / 1920) * 100}vw`,
-              paddingY:`${(16 / 1080) * 100}vh`,
-              alignItems: "center",
-              gap: `${(8 / 1920) * 100}vw`,
-              borderRadius: `${(10 / 1920) * 100}vw`,
-    background: "#0F3659",
-            }}
-          >
-            +신규 회원 등록
-          </Button>
-        </div>
-      </div>
-      
-        {isLoading ? (
-          <CircularProgress />
-        ) : (
-          <DataGrid
-            rows={searchedUsers.length > 0 ? searchedUsers : allUsers}
-            columns={columns.map((column) =>
-              column.field === "type"
-                ? { ...column, editable: true } // Enable editing for the "type" field
-                : column
-            )}
-            onEditCellChange={handleCellEdit} // Attach the event handler for cell edits
-            initialState={{
-              pagination: {
-                paginationModel: {
-                  pageSize: 5,
-                },
-              },
-            }}
-            pageSizeOptions={[5]}
-            disableRowSelectionOnClick
+        >
+          <SearchIcon />
+          <InputBase
+            placeholder=" 사용자 검색"
+            onChange={(event) => handleSearch(event)}
             sx={{
-              width: `${(1470 / 1920) * 100}vw`,
-              height: `${(560 / 1080) * 100}vh`,
-              flexShrink:0,
-              borderRadius: `${(20 / 1920) * 100}vw`,
-              border: '1px solid #F8F9FA',
-              backgroundColor: '#FFF',
-              boxShadow: `${(0 / 1920) * 100}vw ${(4 / 1080) * 100}vh ${(20 / 1920) * 100}vw ${(0 / 1080) * 100}vh rgba(238, 238, 238, 0.50)`,
+              color: "#737791",
+              fontFamily: "Poppins",
+              fontSize: `${(20 / 1920) * 100}vw`,
+              fontStyle: "normal",
+              fontWeight: 500,
+              lineHeight: `${(20 / 1080) * 100}vh`,
             }}
           />
-        )}
+        </Box>
+
+        <div style={{ marginLeft: "auto" }}>
+          <OverlayTrigger
+            placement="top"
+            delay={{ show: 250, hide: 400 }}
+            overlay={renderTooltip}
+          >
+            <Button
+              className="mb-3"
+              onClick={handleRegisterShow}
+              style={{
+                display: "inline-flex",
+                paddingX: `${(12 / 1920) * 100}vw`,
+                paddingY: `${(16 / 1080) * 100}vh`,
+                alignItems: "center",
+                gap: `${(8 / 1920) * 100}vw`,
+                borderRadius: `${(10 / 1920) * 100}vw`,
+                background: "#32CD32",
+                borderColor : "#32CD32",
+              }}
+            >
+              <IoMdPersonAdd />
+            </Button>
+          </OverlayTrigger>
+        </div>
+      </div>
+
+      {isLoading ? (
+        <CircularProgress />
+      ) : (
+        <DataGrid
+          rows={searchedUsers.length > 0 ? searchedUsers : allUsers}
+          columns={columns.map((column) =>
+            column.field === "type"
+              ? { ...column, editable: true } // Enable editing for the "type" field
+              : column
+          )}
+          pageSize={5}
+          pageSizeOptions={[5, 10, 20]}
+          pagination
+          autoHeight
+          onEditCellChange={handleCellEdit} // Attach the event handler for cell edits
+          initialState={{
+            pagination: {
+              paginationModel: {
+                pageSize: 5,
+              },
+            },
+          }}
+          //pageSizeOptions={[5]}
+          disableRowSelectionOnClick
+          sx={{
+            width: `${(1470 / 1920) * 100}vw`,
+            height: `${(560 / 1080) * 100}vh`,
+            flexShrink: 0,
+            borderRadius: `${(20 / 1920) * 100}vw`,
+            border: "1px solid #F8F9FA",
+            backgroundColor: "#FFF",
+            boxShadow: `${(0 / 1920) * 100}vw ${(4 / 1080) * 100}vh ${
+              (20 / 1920) * 100
+            }vw ${(0 / 1080) * 100}vh rgba(238, 238, 238, 0.50)`,
+          }}
+        />
+      )}
       <CustomSnackbar
         open={snackbarOpen}
         message={snackbarMessage}
