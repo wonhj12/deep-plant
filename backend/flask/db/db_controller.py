@@ -80,6 +80,7 @@ def load_initial_data(db_session):
 
 
 def initialize_db(app):
+    db_session = None
     try:
         # 1. DB Engine 생성
         engine = create_engine(app.config["SQLALCHEMY_DATABASE_URI"])

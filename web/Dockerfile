@@ -1,4 +1,7 @@
-FROM node:14
+FROM node:18
+
+# npm 최신 버전 설치
+RUN npm install -g npm@latest
 
 # container 내부에 working directory 설정
 WORKDIR /usr/src/app
