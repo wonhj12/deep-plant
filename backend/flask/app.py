@@ -63,4 +63,4 @@ app.register_blueprint(delete_api, url_prefix="/meat/delete")  # 육류 정보 �
 app.register_blueprint(statistic_api, url_prefix="/statistic")  # 통계 데이터 조회 API
 # Flask 실행
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=8080)
+    app.run(host="0.0.0.0", port=8080, debug=True)
