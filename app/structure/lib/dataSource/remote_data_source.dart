@@ -9,7 +9,8 @@ import 'package:http/http.dart' as http;
 import 'package:xml2json/xml2json.dart';
 
 class RemoteDataSource {
-  static String baseUrl = 'http://3.39.51.41';
+  // static String baseUrl = 'http://3.39.51.41';
+  static String baseUrl = 'http://54.180.132.204:8080';
 
   // 육류 정보 전송 (POST)
   static Future<dynamic> sendMeatData(String? dest, String jsonData) async {
@@ -53,7 +54,8 @@ class RemoteDataSource {
 
   // 딥에이징 데이터 삭제 (GET)
   static Future<dynamic> deleteDeepAging(String id, int seqno) async {
-    dynamic response = await _getApi('meat/delete/deep_aging?id=$id&seqno=$seqno');
+    dynamic response =
+        await _getApi('meat/delete/deep_aging?id=$id&seqno=$seqno');
     return response;
   }
 
@@ -104,7 +106,8 @@ class RemoteDataSource {
     String requestBody = jsonData;
 
     try {
-      final response = await http.post(Uri.parse(apiUrl), headers: headers, body: requestBody);
+      final response = await http.post(Uri.parse(apiUrl),
+          headers: headers, body: requestBody);
       if (response.statusCode == 200) {
         print('POST 요청 성공');
         print(response.body);
