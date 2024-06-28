@@ -53,12 +53,6 @@ function Dashboard() {
             </div>
           : <span style={{color:`${navy}`, fontSize:'30px', fontWeight:'600'}}>Dashboard</span>
         }
-        <div style={{display:'flex',justifyContent:'end'}}>
-          <Button  style = {value === "reject"? styles.tabBtnCilcked : {color:`${navy}`, border:`1px solid ${navy}`}} value="reject" variant="outlined" onClick={(e)=>{setValue(e.target.value)}}>
-            <FaBoxOpen style={{marginRight:'3px'}}/>
-            반려함
-          </Button>
-        </div>
       </Box>
 
       {/**이동 탭 (목록, 통계 , 반려) */}
@@ -66,6 +60,9 @@ function Dashboard() {
         <div style={{display:'flex'}}>
           <Button  style = {value === "list" ? styles.tabBtnCilcked : styles.tabBtn} value="list" variant="outlined" onClick={(e)=>{setValue(e.target.value)}}>목록</Button>
           <Button  style = {value === "stat" ? styles.tabBtnCilcked : styles.tabBtn} value="stat" variant="outlined" onClick={(e)=>{setValue(e.target.value)}}>통계</Button>
+          <Button  style = {value === "reject" ? styles.tabBtnCilcked : styles.tabBtn} value="reject" variant="outlined" onClick={(e)=>{setValue(e.target.value)}}>
+          반려함
+      </Button>
         </div>
       </Box >
 

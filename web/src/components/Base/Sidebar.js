@@ -80,6 +80,7 @@ const Drawer = styled(MuiDrawer, {
     boxSizing: "border-box",
     backgroundColor: "#FFFFFF", //사이드바 배경
     boxShadow:`${(5 / 1920) * 100}vw 0px ${(30 / 1080) * 100}vh 0px rgba(238, 238, 238, 0.50)`, // 사이드바 그림자
+    overflowX: 'hidden',
     ...(!open && {
       transition: theme.transitions.create("width", {
         easing: theme.transitions.easing.sharp,
@@ -208,6 +209,7 @@ function Sidebar() {
                 to={item.path}
                 selected={location.pathname === item.path}
                 sx={{
+                  minHeight: 60,
                   ...(location.pathname === item.path && {
                     "& .MuiSvgIcon-root, .MuiTypography-root": {
                       color: "#FFFFFF",
@@ -221,12 +223,14 @@ function Sidebar() {
 
               >
                 <ListItemIcon>{item.icon}</ListItemIcon>
-                <Button onClick={()=>{}}>
-                  <ListItemText
-                    primary={item.label}
-                    primaryTypographyProps={{ color: "textPrimary" }}
-                  />
-                </Button>
+                {/* <Button onClick={()=>{}}> */}
+                  {open && (
+                    <ListItemText
+                      primary={item.label}
+                      primaryTypographyProps={{ color: "textPrimary" }}
+                    />
+                  )}
+                {/* </Button> */}
               </ListItemButton>
             </Tooltip>
           ))}
