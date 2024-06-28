@@ -22,13 +22,24 @@ const DataListComp=({
   const count = 6; 
 
   // API fetch 데이터 전처리
-  const processMeatDatas = (data) =>{
-      setTotalData(data["DB Total len"]);
-      let meatData = [];
-      data.id_list.map((m) => {
+  const processMeatDatas = (data) => {
+    if (!data || !data["DB Total len"] || !data.id_list || !data.meat_dict) {
+      console.error("올바르지 않은 데이터 형식:", data);
+      return;
+    }
+  
+    setTotalData(data["DB Total len"]);
+  
+    let meatData = [];
+    data.id_list.forEach((m) => {
+      if (data.meat_dict[m]) {
         meatData = [...meatData, data.meat_dict[m]];
-      });
-      setMeatList(meatData);
+      } else {
+        console.error("meat_dict에 없는 id:", m);
+      }
+    });
+  
+    setMeatList(meatData);
   }
   
   // API fetch

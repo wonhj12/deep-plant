@@ -17,14 +17,27 @@ const PADataListComp=({startDate, endDate})=>{
   const count = 8; 
 
   // API fetch 데이터 전처리
-  const processPAMeatDatas = (data) =>{
+  const processPAMeatDatas = (data) => {
+    if (!data || !data["DB Total len"] || !Array.isArray(data.id_list) || !data.meat_dict) {
+      console.error("올바르지 않은 데이터 형식:", data);
+      return;
+    }
+  
     setTotalData(data["DB Total len"]);
+  
     let meatData = [];
-    data.id_list.map((m) => {
-      meatData = [...meatData, data.meat_dict[m]];
+    data.id_list.forEach((m) => {
+      if (data.meat_dict[m]) {
+        meatData = [...meatData, data.meat_dict[m]];
+      } else {
+        console.error("meat_dict에 없는 id:", m);
+      }
     });
+  
     setMeatList(meatData);
-  }
+  };
+
+  
 
   // API fetch
   const { data, isLoading, isError } = usePredictedMeatListFetch(currentPage-1, count, startDate, endDate) ;
