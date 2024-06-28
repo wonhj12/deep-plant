@@ -22,7 +22,7 @@ function Pagination({
     return(
         <Box style={{display:'flex', justifyContent:'space-between', width:'100%', paddingRight:'30px', alignItems:'center'}}>
             <span>
-                {(currentPage-1)*count+1}-{(currentPage*count)>totalDatas? totalDatas:(currentPage*count)} of {totalDatas}
+                {`${Math.min((currentPage - 1) * count + 1, totalDatas)}-${Math.min(currentPage * count, totalDatas)}`} of {totalDatas}
             </span>
             <Box style={{display:'flex', alignItems:'center'}}>
                 <Box style={{display:'flex' , alignItems:'center'}}>
@@ -46,13 +46,13 @@ function Pagination({
                 <Divider orientation="vertical" flexItem />
                 <Box style={{display:'flex',alignItems:'center'}}>
                     <IconButton variant="contained" size="small" sx={{height:'40px', width:'40px', borderRadius:'10px', marginRight:'5px', padding:'0', border:'1px solid black'}} onClick={handlePrevClick} 
-                        disabled={currentPage === 1}
+                        disabled={currentPage === 1 || !totalDatas}
                     >
                         <FaArrowLeft/>
                     </IconButton>
                     <IconButton variant="contained" size="small" sx={{height:'40px', width:'40px', borderRadius:'10px', padding:'0', border:'1px solid black'}}  
                     onClick={handleNextClick}
-                    disabled={currentPage === totalPages}
+                    disabled={currentPage === totalPages || !totalDatas}
                     >
                         <FaArrowRight/>
                     </IconButton>
