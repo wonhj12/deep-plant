@@ -130,7 +130,7 @@ class ChangePasswordViewModel with ChangeNotifier {
   // 유저 비밀번호 확인
   String _userInfoToJson() {
     return jsonEncode({
-      "id": userModel.userId,
+      "userId": userModel.userId,
       "password": originPW.text,
     });
   }
