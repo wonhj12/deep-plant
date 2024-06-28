@@ -223,14 +223,12 @@ function Sidebar() {
 
               >
                 <ListItemIcon>{item.icon}</ListItemIcon>
-                {/* <Button onClick={()=>{}}> */}
                   {open && (
                     <ListItemText
                       primary={item.label}
                       primaryTypographyProps={{ color: "textPrimary" }}
                     />
                   )}
-                {/* </Button> */}
               </ListItemButton>
             </Tooltip>
           ))}
