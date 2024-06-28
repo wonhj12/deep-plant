@@ -70,6 +70,7 @@ export default function StatsTabs({ startDate, endDate }) {
 
   const handleFirstChange = (event) => {
     setAlignment(event.target.value);
+    setSecondary("원육"); // Initialize secondary to "원육"
   };
 
   const handleSecondChange = (event) => {
@@ -115,16 +116,18 @@ export default function StatsTabs({ startDate, endDate }) {
                 <MenuItem value="관능">관능</MenuItem>
               </Select>
               <Select
-                labelId="secondary-label"
-                id="secondary"
-                value={secondary}
-                onChange={handleSecondChange}
-                label="원육, 처리육, 가열육"
-              >
-                <MenuItem value="원육">원육</MenuItem>
-                <MenuItem value="처리육">처리육</MenuItem>
-                <MenuItem value="가열육" disabled={alignment === "맛"}>가열육</MenuItem>
-              </Select>
+              labelId="secondary-label"
+              id="secondary"
+              value={secondary}
+              onChange={handleSecondChange}
+              label="원육, 처리육, 가열육"
+            >
+              <MenuItem value="원육">원육</MenuItem>
+              <MenuItem value="처리육">처리육</MenuItem>
+              {alignment === "관능" && (
+                <MenuItem value="가열육">가열육</MenuItem>
+              )}
+            </Select>
             </div>
           )}
 
